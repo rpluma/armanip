@@ -1,0 +1,28 @@
+# --- ROS ---
+# Ignore build directories
+build/
+devel/
+build_* # For catkin_make_isolated
+install/ # For catkin tools
+install_isolated/ # For catkin_make_isolated
+
+# Ignore generated files
+*.log
+*.pyc
+*.so
+*.bag
+.cache/
+CMakeCache.txt
+CMakeFiles/
+
+# Ignore editor and OS specific files
+*~
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Add any other files/folders that are not source code
+# e.g.
+# data/
+# logs/
