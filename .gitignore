@@ -1,4 +1,3 @@
-# --- ROS ---
 # Ignore build directories
 build/
 devel/
