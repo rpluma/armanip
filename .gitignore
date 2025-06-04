@@ -25,3 +25,7 @@ Thumbs.db
 # e.g.
 # data/
 # logs/
+*.png
+*.jpg
+*.jpeg
+*.mp4
