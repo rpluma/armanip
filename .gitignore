@@ -4,6 +4,8 @@ devel/
 build_* # For catkin_make_isolated
 install/ # For catkin tools
 install_isolated/ # For catkin_make_isolated
+**/.ipynb_checkpoints/
+**/slprj/
 
 # Ignore generated files
 *.log
@@ -29,3 +31,4 @@ Thumbs.db
 *.jpg
 *.jpeg
 *.mp4
+*.csv
