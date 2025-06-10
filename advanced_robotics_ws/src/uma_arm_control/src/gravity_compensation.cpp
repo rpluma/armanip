@@ -99,7 +99,8 @@
         Eigen::VectorXd gravity_compensation()
         {
             // Placeholder for calculate the commanded torques
-            // Calculate the control torque to compensate only for gravity effects: tau = g(q)
+            // Calculate the control torque to compensate only for gravity effects: 
+            //    tau = g(q)
 
             // Initialize q1, q2, q_dot1, and q_dot2
             double q1 = joint_positions_(0);
@@ -107,44 +108,16 @@
 
             // Calculate g_vect
             Eigen::VectorXd g_vec(2);   // gravity vector        
-            g_vec << (m1_ + m2_) * l1_ * g_ * cos(q1) + m2_ * g_ * l2_ * cos(q1 + q2),
-                      m2_ * g_ * l2_ * cos(q1 + q2);
+            g_vec << (m1_ + m2_)*l1_*g_*cos(q1) + m2_*g_*l2_*cos(q1 + q2),
+                      m2_       *l2_*g_*cos(q1+q2);
 
             // // Calculate desired torque
             Eigen::VectorXd torque(2);
-            // torque << 0, 0;
             torque << g_vec;
 
-            return torque;
+            return torque; // joint_torques_ = gravity_compensation();
         }
-        /*
-        // Initialize M, C, Fb, g_vec, J, and tau_ext
-        Eigen::MatrixXd M(2, 2);    // Inertia matrix
-        Eigen::VectorXd C(2);       // Coriolis and centrifugal forces matrix
-        Eigen::MatrixXd Fb(2, 2);   // Viscous friction matrix
-        Eigen::VectorXd g_vec(2);   // gravity vector
-        Eigen::MatrixXd J(2, 2);    //! jacobiano -> preguntar de donde sale
-        Eigen::VectorXd tau_ext(2); // joint torques due to external forces
 
-
-
-        // Placeholder calculations for M, C, Fb, g, and tau_ext
-        // Calculate matrix M
-        M(0, 0) = m1_ * pow(l1_, 2) + m2_ * (pow(l1_, 2) + 2 * l1_ * l2_ * cos(q2) + pow(l2_, 2));
-        M(0, 1) = m2_ * (l1_ * l2_ * cos(q2) + pow(l2_, 2));
-        M(1, 0) = M(0, 1);
-        M(1, 1) = m2_ * pow(l2_, 2);
-
-        // Calculate vector C (C is 2x1 because it already includes q_dot)
-        C << -m2_ * l1_ * l2_ * sin(q2) * (2 * q_dot1 * q_dot2 + pow(q_dot2, 2)),
-        m2_ * l1_ * l2_ * pow(q_dot1, 2) * sin(q2);
-
-        // Calculate Fb matrix
-        Fb << b1_, 0.0,
-              0.0, b2_;
-
-        // Calculate g_vect
-        */
 
 
         // Method to publish the joint data

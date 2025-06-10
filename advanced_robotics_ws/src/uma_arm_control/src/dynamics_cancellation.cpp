@@ -60,9 +60,6 @@
             b1_ = this->get_parameter("b1").as_double();
             b2_ = this->get_parameter("b2").as_double();
 
-            printf("m1=%0.2f, m2=%0.2f, l1=%0.2f, l2=%0.2f, b1=%0.2f, b2=%0.2f, g=%02.f", 
-                m1_, m2_, l1_, l2_, b1_, b2_, g_);
-        
             // Set initial joint state
             joint_positions_ = Eigen::VectorXd::Map(this->get_parameter("q0").as_double_array().data(), 2);
 
@@ -115,7 +112,6 @@
         void desired_joint_accelerations_callback(const std_msgs::msg::Float64MultiArray::SharedPtr msg)
         {
             desired_joint_accelerations_ = Eigen::VectorXd::Map(msg->data.data(), msg->data.size());
-            printf("desired accel= %0.2f, %0.2f\n", desired_joint_accelerations_(0), desired_joint_accelerations_(1));
         }
 
 
@@ -128,9 +124,8 @@
             Eigen::VectorXd Cq_dot(2);  // Coriolis and centrifugal forces matrix
             Eigen::MatrixXd Fb(2, 2);   // Viscous friction matrix
             Eigen::VectorXd g_vec(2);   // gravity vector
-            Eigen::VectorXd tau_ext(2); // !!external torque
-        
-            // Initialize q1, q2, q_dot1, and q_dot2
+            
+            // Initialize q1, q2, q_dot1, and q_dot2?
             double q1 = joint_positions_(0);
             double q2 = joint_positions_(1);
             double q_dot1 = joint_velocities_(0);
@@ -138,31 +133,28 @@
 
 
             // Calculate matrix M
-            M(0, 0) = m1_ *  pow(l1_, 2) + 
-                      m2_ * (pow(l1_, 2) + 2 * l1_ * l2_ * cos(q2) + pow(l2_, 2));
-            M(0, 1) = m2_ * (l1_ * l2_ * cos(q2) + pow(l2_, 2));
+            M(0, 0) = m1_*pow(l1_, 2) + m2_*(pow(l1_, 2) + 2*l1_*l2_*cos(q2) + pow(l2_, 2));
+            M(0, 1) = m2_*(l1_*l2_*cos(q2) + pow(l2_, 2));
             M(1, 0) = M(0, 1);
-            M(1, 1) = m2_ * pow(l2_, 2);
+            M(1, 1) = m2_*pow(l2_, 2);
 
             // Calculate vector C (C is 2x1 because it already includes q_dot)
-            Cq_dot << -m2_ * l1_ * l2_ * sin(q2) * (2 * q_dot1 * q_dot2 + pow(q_dot2, 2)),
-                       m2_ * l1_ * l2_ * pow(q_dot1, 2) * sin(q2);
+            Cq_dot << -m2_*l1_*l2_*sin(q2)*(2*q_dot1*q_dot2 + pow(q_dot2, 2)),
+                       m2_*l1_*l2_*pow(q_dot1, 2)*sin(q2);
 
             // Calculate Fb matrix
             Fb << b1_, 0.0,
                   0.0, b2_;
 
             // Calculate g_vect
-            g_vec << (m1_ + m2_) * l1_ * g_ * cos(q1) + m2_ * g_ * l2_ * cos(q1 + q2),
-                        m2_      * l2_ * g_ * cos(q1 + q2);
+            g_vec << (m1_ + m2_)*l1_*g_*cos(q1) + m2_*g_*l2_*cos(q1 + q2),
+                        m2_     *l2_*g_*cos(q1+q2);
 
             // Calculate control torque using the dynamic model:             
             // torque = M * q_ddot + C * q_dot + Fb * q_dot + g
             Eigen::VectorXd torque(2);
-            torque << M * desired_joint_accelerations_ + 
-                      Cq_dot + 
-                      Fb * joint_velocities_ + 
-                      g_vec;
+            torque << M*desired_joint_accelerations_ +  // M(q)
+                      Cq_dot + Fb*joint_velocities_ + g_vec; // n(q, qdot)
 
             return torque; // joint_torques_ = cancel_dynamics()
         }
