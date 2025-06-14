@@ -27,8 +27,8 @@ Thumbs.db
 # e.g.
 # data/
 # logs/
-*.png
-*.jpg
-*.jpeg
+*.xpng
+*.xjpg
+*.xjpeg
 *.mp4
 *.csv
