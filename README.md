@@ -1,7 +1,9 @@
 # Ampliación de Robótica - Manipuladores
 
-## Documentación de los laboratorios
+## Cuadernos de Jupyter
 
+- [Resumen de ecuaciones](jupyter/Ecuaciones.ipynb)
+- [Comandos frecuentes](jupyter/FAQ.ipynb)
 - [Lab 1: Cartesian trajectory planning](jupyter/lab1/lab1.ipynb)
 - [Lab 2: Manipulator dynamics simulation](jupyter/lab2/lab2.ipynb)
 - [Lab 3: Inverse dynamics control](jupyter/lab3/lab3.ipynb)
