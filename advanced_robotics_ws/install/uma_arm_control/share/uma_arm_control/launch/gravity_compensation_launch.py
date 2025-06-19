@@ -1,1 +1,0 @@
-/home/rpl/ros/advanced_robotics_ws/src/uma_arm_control/launch/gravity_compensation_launch.py

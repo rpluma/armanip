@@ -1,0 +1,1 @@
+/home/rpl/ros/advanced_robotics_ws/build/uma_arm_control/ament_cmake_environment_hooks/local_setup.sh

@@ -1,1 +1,0 @@
-/home/rpl/ros/advanced_robotics_ws/src/uma_arm_description/launch/uma_arm_visualization.launch.py

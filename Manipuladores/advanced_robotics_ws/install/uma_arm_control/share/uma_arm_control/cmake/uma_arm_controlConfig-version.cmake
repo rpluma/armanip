@@ -1,0 +1,1 @@
+/home/rpl/ros/advanced_robotics_ws/build/uma_arm_control/ament_cmake_core/uma_arm_controlConfig-version.cmake
