@@ -2,13 +2,13 @@
 
 ## Robots Móviles
 
-- [Práctica 1](Robots_Móviles/P1/Memoria_Práctica_1.ipynb)
-- [Práctica 2](Robots_Móviles/P1/Memoria_Práctica_2.ipynb)
-- [Práctica 3](Robots_Móviles/P1/Memoria_Práctica_3.ipynb)
-- [Práctica 4](Robots_Móviles/P1/Memoria_Práctica_4.ipynb)
-- [Práctica 5](Robots_Móviles/P1/Memoria_Práctica_5.ipynb)
-- [Práctica 6](Robots_Móviles/P1/Memoria_Práctica_6.ipynb)
-- [Práctica 7](Robots_Móviles/P1/Memoria_Práctica_7.ipynb)
+- [Práctica 1 - Modelado de un vehículo diferencial](Robots_Móviles/P1/Memoria_Práctica_1.ipynb)
+- [Práctica 2 - Seguimiento de caminos](Robots_Móviles/P2/Memoria_Práctica_2.ipynb)
+- [Práctica 3 - SLAM basado en EFK](Robots_Móviles/P3/Memoria_Práctica_3.ipynb)
+- [Práctica 4 - Evitar obstáculos](Robots_Móviles/P4/Memoria_Práctica_4.ipynb)
+- [Práctica 5 - Planificación de caminos - Dijkstra](Robots_Móviles/P5/Memoria_Práctica_5.ipynb)
+- [Práctica 6 - Planificación de caminos - A*](Robots_Móviles/P6/Memoria_Práctica_6.ipynb)
+- [Práctica 7 - Navegación autónoma](Robots_Móviles/P7/Memoria_Práctica_7.ipynb)
   
 ## Manipuladores
 
