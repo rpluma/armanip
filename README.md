@@ -23,7 +23,7 @@
 ## Estructura del repositorio
 
 - Manipuladores: Una subcarpeta por cada una de las prácticas
-- Robots Móviles
+- Robots_Móviles
     - advanced_robotics_ws: subcarpeta con prácticas de ros2
     - jupyter: subcarpetas con cuadernos jupyter
     - matlab: subcarpeta con módulos matlab y simulink
