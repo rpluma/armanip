@@ -1,8 +1,14 @@
 # Ampliación de Robótica 
 
-## Robots Móbiles
+## Robots Móviles
 
-- [Práctica 1](Robots Móviles/P1/Memoria Práctica 1.ipynb)
+- [Práctica 1](Robots_Móviles/P1/Memoria_Práctica_1.ipynb)
+- [Práctica 2](Robots_Móviles/P1/Memoria_Práctica_2.ipynb)
+- [Práctica 3](Robots_Móviles/P1/Memoria_Práctica_3.ipynb)
+- [Práctica 4](Robots_Móviles/P1/Memoria_Práctica_4.ipynb)
+- [Práctica 5](Robots_Móviles/P1/Memoria_Práctica_5.ipynb)
+- [Práctica 6](Robots_Móviles/P1/Memoria_Práctica_6.ipynb)
+- [Práctica 7](Robots_Móviles/P1/Memoria_Práctica_7.ipynb)
   
 ## Manipuladores
 
@@ -16,7 +22,9 @@
 
 ## Estructura del repositorio
 
-- advanced_robotics_ws: subcarpeta con prácticas de ros2
-- jupyter: subcarpetas con cuadernos jupyter
-- matlab: subcarpeta con módulos matlab y simulink
+- Manipuladores: Una subcarpeta por cada una de las prácticas
+- Robots Móviles
+    - advanced_robotics_ws: subcarpeta con prácticas de ros2
+    - jupyter: subcarpetas con cuadernos jupyter
+    - matlab: subcarpeta con módulos matlab y simulink
 
